@@ -894,8 +894,8 @@
 // ORIGINAL    $scope.radioPort = '3536'; // Replace this with the port of your Radio Stream
     $scope.radioHost = 'http://icy3.abacast.com/resultsradio-kcclfmmp3-48'; // Replace this with your own radio stream URL
     $scope.radioPort = '80'; // Replace this with the port of your Radio Stream
-    $scope.lastFMKey = 'e3343637ee292e488adf1e92bceb3a4f';
-    $scope.lastFM = 'http://ws.audioscrobbler.com/2.0/?method=track.search&format=json&limit=1&api_key='+$scope.lastFMKey+'&track=';
+//    $scope.lastFMKey = 'e3343637ee292e488adf1e92bceb3a4f';
+//    $scope.lastFM = 'http://ws.audioscrobbler.com/2.0/?method=track.search&format=json&limit=1&api_key='+$scope.lastFMKey+'&track=';
 
 // ORIGINAL    $scope.radioURL = $scope.radioHost+':'+$scope.radioPort+'/;';
     $scope.radioURL = 'http://icy3.abacast.com:80/resultsradio-kcclfmmp3-48';  
@@ -907,89 +907,7 @@
     }
 
   
-  // ***********************************************************************************
-  // **************  Shoutcast plugin to get the Song Name - POSSIBLY REMOVE ***********
-  // ***********************************************************************************
 
-    $.SHOUTcast({
-       host : '108.163.223.242', // 192.99.8.192 Replace this with your own radio stream URL but remove the http
-       port : $scope.radioPort,
-       interval : 40000, // Refresh interval in miliseconds is equal to 40 seconds.
-       stream: 1, // Replace with your stream, default is 1.
-       stats : function(){
-          var songTitle = this.get('songtitle');
-          var albumArt = '';
-          
-          $.getJSON( $scope.lastFM+encodeURIComponent(songTitle), function( data ) {
-            if(data.error){
-              //console.log(data.message);
-              albumArt = 'images/radio/cover.png';    
-            } else {
-              //console.log(data); // delete this for production
-              if( data.results!== undefined ){
-                if(data.results.trackmatches !="\n" ){
-                  if(data.results.trackmatches.track.image !== undefined){
-                    albumArt = data.results.trackmatches.track.image[3]['#text'];
-                  } else {
-                    albumArt = 'images/radio/cover.png';
-                  }                  
-                } else {
-                  albumArt = 'images/radio/cover.png'; 
-                }
-              }
-            }
-
-            $scope.$apply(function(){
-              $scope.radioOptions.albumArt = albumArt;
-            });
-
-          });
-          
-          $scope.$apply(function(){
-            $scope.radioOptions.songName = songTitle;
-          });
-       }
-
-    }).startStats();
-
-    if (radio!==null) {   
-        $scope.radio = radio;
-        
-        if(isPlaying){
-          $scope.buttonIcon = '<span class="ion-ios-pause"></span>';
-        } else {
-          $scope.buttonIcon = '<span class="ion-ios-play"></span>';
-        }
-    } else {
-      
-      isPlaying = false;
-        $scope.radio = ngAudio.load($scope.radioURL);
-        radio = $scope.radio;
-    }
-
-    $scope.renderHtml = function (htmlCode) {
-          return $sce.trustAsHtml(htmlCode);
-      };
-
-      $scope.startRadio = function(){
-
-        if(!isPlaying){
-          // Let's play it
-          isPlaying = true;
-        $scope.radio.play();
-
-        $scope.buttonIcon = '<span class="ion-ios-pause"></span>';
-        $scope.isFetching = true;
-
-        } else {
-          // Let's pause it
-          isPlaying = false;
-        $scope.radio.pause();
-        $scope.buttonIcon = '<span class="ion-ios-play"></span>';
-
-        }
-
-      }
 
       // Check if is Offline
     document.addEventListener("offline", function(){
