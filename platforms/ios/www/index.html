@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>101.5 K-HITS</title>  
+
+  <!-- All our CSS -->
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">    
+  <link rel="stylesheet" href="css/onsen-css-components.css"> 
+  <link rel="stylesheet" href="css/plugins.css"/>
+  <link rel="stylesheet" href="css/roots.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <!-- CSS for the Radio -->
+  <link rel="stylesheet" href="css/radio.css"/>
+  
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/angular/angular-touch.js"></script> 
+  <script src="lib/onsen/js/onsenui.js"></script>    
+  <script src="js/plugins.js"></script>  
+  <script src="cordova.js"></script>
+  <script src="js/app.js"></script>  
+      
+</head>
+
+<body ng-controller="networkController">    
+
+  <ons-tabbar>
+    <ons-tab page="radio.html" active="true">
+      <ons-icon icon="ion-headphone"></ons-icon>
+    </ons-tab>
+    <ons-tab page="promo.html">
+      <ons-icon icon="ion-android-happy"></ons-icon>
+    </ons-tab>
+    <ons-tab page="local.html">
+      <ons-icon icon="ion-ios-book"></ons-icon>
+    </ons-tab>    
+    <ons-tab page="music.html">
+      <ons-icon icon="ion-ios-musical-notes"></ons-icon>
+    </ons-tab>
+    <ons-tab page="sports.html">
+      <ons-icon icon="ion-ios-americanfootball"></ons-icon>
+    </ons-tab>        
+    <ons-tab page="hollywood.html">
+      <ons-icon icon="ion-film-marker"></ons-icon>
+    </ons-tab>
+  </ons-tabbar>
+  
+  <!-- Insert the modal in your index.html -->
+  <!-- Change the message to anything you want, this message will be if the user doesn't have any network connection -->
+  <ons-modal var="offlineMessage">
+    Unable to connect to the Internet.<br> Please verify your connection. 
+  </ons-modal>
+
+</body>
+</html>
