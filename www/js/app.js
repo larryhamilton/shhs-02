@@ -893,12 +893,12 @@
 // ORIGINAL    $scope.radioHost = 'http://192.99.8.192'; // Replace this with your own radio stream URL
 // ORIGINAL    $scope.radioPort = '3536'; // Replace this with the port of your Radio Stream
     $scope.radioHost = 'http://icy3.abacast.com/resultsradio-kcclfmmp3-48'; // Replace this with your own radio stream URL
-    $scope.radioPort = ''; // Replace this with the port of your Radio Stream
+    $scope.radioPort = '80'; // Replace this with the port of your Radio Stream
     $scope.lastFMKey = 'e3343637ee292e488adf1e92bceb3a4f';
     $scope.lastFM = 'http://ws.audioscrobbler.com/2.0/?method=track.search&format=json&limit=1&api_key='+$scope.lastFMKey+'&track=';
 
 // ORIGINAL    $scope.radioURL = $scope.radioHost+':'+$scope.radioPort+'/;';
-    $scope.radioURL = 'http://icy3.abacast.com/resultsradio-kcclfmmp3-48.m3u';  
+    $scope.radioURL = 'http://icy3.abacast.com/resultsradio-kcclfmmp3-48';  
     $scope.buttonIcon = '<span class="ion-ios-play"></span>';
 
     $scope.radioOptions = {
