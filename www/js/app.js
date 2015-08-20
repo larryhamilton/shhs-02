@@ -898,7 +898,7 @@
     $scope.lastFM = 'http://ws.audioscrobbler.com/2.0/?method=track.search&format=json&limit=1&api_key='+$scope.lastFMKey+'&track=';
 
 // ORIGINAL    $scope.radioURL = $scope.radioHost+':'+$scope.radioPort+'/;';
-    $scope.radioURL = 'http://icy3.abacast.com/resultsradio-kcclfmmp3-48';  
+    $scope.radioURL = 'http://icy3.abacast.com:80/resultsradio-kcclfmmp3-48';  
     $scope.buttonIcon = '<span class="ion-ios-play"></span>';
 
     $scope.radioOptions = {
