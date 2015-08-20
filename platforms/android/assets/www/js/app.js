@@ -907,7 +907,46 @@
     }
 
   
+    }).startStats();
 
+    if (radio!==null) {   
+        $scope.radio = radio;
+        
+        if(isPlaying){
+          $scope.buttonIcon = '<span class="ion-ios-pause"></span>';
+        } else {
+          $scope.buttonIcon = '<span class="ion-ios-play"></span>';
+        }
+    } else {
+      
+      isPlaying = false;
+        $scope.radio = ngAudio.load($scope.radioURL);
+        radio = $scope.radio;
+    }
+
+    $scope.renderHtml = function (htmlCode) {
+          return $sce.trustAsHtml(htmlCode);
+      };
+
+      $scope.startRadio = function(){
+
+        if(!isPlaying){
+          // Let's play it
+          isPlaying = true;
+        $scope.radio.play();
+
+        $scope.buttonIcon = '<span class="ion-ios-pause"></span>';
+        $scope.isFetching = true;
+
+        } else {
+          // Let's pause it
+          isPlaying = false;
+        $scope.radio.pause();
+        $scope.buttonIcon = '<span class="ion-ios-play"></span>';
+
+        }
+
+      }
 
       // Check if is Offline
     document.addEventListener("offline", function(){
